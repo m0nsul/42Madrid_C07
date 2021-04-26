@@ -3,5 +3,6 @@ a.out
 .vscode/*
 .history/
 *.o
+main.c
 
 
