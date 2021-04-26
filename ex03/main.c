@@ -2,37 +2,30 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_ultimate_range(int **range, int min, int max);
-
-void	debug_dump_array(int numbers[], int size)
-{
-	int index;
-
-	printf("[ ");
-	index = 0;
-	while (index < size)
-	{
-		printf("%d", numbers[index]);
-		if (index != size - 1)
-		{
-			printf(", ");
-		}
-		index++;
-	}
-	printf(" ]");
-}
+char	*ft_strjoin(int size, char **strs, char *sep);
+int	ft_strlen(char *str);
 
 int		main(void)
 {
-	int	min;
-	int	max;
-	int	*range;
-	int	bound;
+	int		i;
+	char	*sep;
+	char	**strs;
+	char	*result;
 
-	min = 5;
-	max = 10;
-	bound = ft_ultimate_range(&range, min, max);
-	printf("min = %d, max = %d -> (bound = %d) ", min, max, bound);
-	fflush(stdout);
-	debug_dump_array(range, bound + 5);
+	strs = (char **)malloc(4 * sizeof(strs));
+	strs[0] = "Hola";
+	strs[1] = "mundo";
+	strs[2] = "cruel";
+	strs[3] = "!";
+	sep = "____";
+	i = 0;
+
+	while (i < 4)
+	{
+		result = ft_strjoin(i + 1, strs, sep);
+		printf("\nresult with size: %d : $%s$ size: %d\n", i + 1, result, ft_strlen(result));
+		free (result);
+		i++;
+	}
+	free (strs);
 }
